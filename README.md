@@ -1,6 +1,7 @@
-# To-Do List React Example w/ Fetch API
+# To-Do List React Project w/ Fetch API
 
-This template is similar to create-react-app but it's meant for 4Geeks Academy students.
+This is an project for a to-do list in React JS and utilizing a fetch function
+with an external API
 
 ##### Download the boilerplate using git
 
