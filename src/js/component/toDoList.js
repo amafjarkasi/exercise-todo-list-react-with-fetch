@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from "react";
+import Body from "./Body";
 //import { saveToLocalStorage, getFromLocalStorage } from "./saveToLocalStorage";
 
 const ToDo = props => {
@@ -92,16 +93,42 @@ const ToDo = props => {
 	//component still needs a way to remove the items
 	//make it work!
 	return (
-		<div className="container-fluid w-50">
-			<div className="justify-content-center">
-				<h1>To Dos</h1>
-				<input
-					type="text"
-					placeholder="Add a task"
-					name="task"
-					onKeyDown={addTask}
-				/>
-				<ul className="align-content-center">
+		<>
+			<Body />
+			<div className="container-fluid w-50">
+				<div className="text-center shadow-sm border mt-3 pt-2 rounded-lg">
+					<h1 className="pb-4">To-Do List App</h1>
+					<input
+						type="text"
+						placeholder="Add a task (press enter to save)"
+						name="task"
+						className="w-50"
+						onKeyDown={addTask}
+					/>
+					<div className="container w-50 pt-4 pb-3">
+						<ul className="list-group">
+							{toDos.map((arrayElement, arrayIndex) => {
+								return (
+									<li
+										key={arrayIndex}
+										className="list-group-item d-flex justify-content-between align-items-center py-1">
+										{arrayElement.label}
+										<span
+											className="badge badge-danger"
+											onClick={() =>
+												deleteTask(arrayIndex)
+											}>
+											<i
+												className="fas fa-times"
+												onClick={() =>
+													deleteTask(arrayIndex)
+												}
+											/>
+										</span>
+									</li>
+								);
+							})}
+							{/* <ul className="align-content-center">
 					{toDos.map((arrayElement, arrayIndex) => {
 						return (
 							<li
@@ -113,12 +140,17 @@ const ToDo = props => {
 									onClick={() => deleteTask(arrayIndex)}
 								/>
 							</li>
-						);
-					})}
-				</ul>
-				<p>{toDos.length} Items left</p>
+						); */}
+						</ul>
+					</div>
+					<div className="d-flex justify-content-center pt-3">
+						<p className="alert alert-warning w-25 rounded py-0 font-weight-bold">
+							{toDos.length} items total
+						</p>
+					</div>
+				</div>
 			</div>
-		</div>
+		</>
 	);
 };
 
