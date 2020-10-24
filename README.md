@@ -1,4 +1,4 @@
-# To-do list react example w/ fetch
+# To-Do List React Example w/ Fetch API
 
 This template is similar to create-react-app but it's meant for 4Geeks Academy students.
 
